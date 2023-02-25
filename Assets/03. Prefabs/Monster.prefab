@@ -1100,6 +1100,7 @@ GameObject:
   - component: {fileID: 1339729102}
   - component: {fileID: 1339729106}
   - component: {fileID: 1400465204}
+  - component: {fileID: 7172376271654641646}
   m_Layer: 0
   m_Name: Monster
   m_TagString: MONSTER
@@ -1164,7 +1165,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1975194375736644}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1.5
   m_Direction: 1
@@ -1208,6 +1209,8 @@ MonoBehaviour:
   attackDist: 2
   hp: 100
   item: {fileID: 2592428902570873609, guid: 4574bc69ac145ea4a994d55b6d7a45f5, type: 3}
+  monsterHpShow: {fileID: 7951124508832682345, guid: 08f84326a2048dc449978022550ac55f, type: 3}
+  hpImage: {fileID: 0}
 --- !u!114 &1400465204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,6 +1223,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3361d8433c1720a449727a7984ac6715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7172376271654641646
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975194375736644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1992369794795074
 GameObject:
   m_ObjectHideFlags: 0

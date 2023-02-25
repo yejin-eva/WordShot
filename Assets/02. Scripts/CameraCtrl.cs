@@ -25,6 +25,7 @@ public class CameraCtrl : MonoBehaviour
     //플레이어 이동 후 카메라 추적
     private void LateUpdate()
     {
+        //스코프 사용하지 않을 때 
         if (isScope == -1)
         {
             tr.position = Vector3.Lerp(
@@ -35,16 +36,35 @@ public class CameraCtrl : MonoBehaviour
             tr.LookAt(targetTr.position);
 
         }
+        //스코프 사용할 때
         else if (isScope == 1)
         {
             tr.position = scopeTr.position;
             
         }
-
+        
+        
+        
 
 
 
     }
+    //!구현중: 물체 투명화
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "BACKGROUND")
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        other.gameObject.SetActive(true);
+    }
+    */
+
+
 
     public void OnScopePressed()
     {

@@ -29,7 +29,7 @@ public class MonsterHitCtrl : MonoBehaviour
         timer += Time.deltaTime;
         //Debug.Log(dist);
 
-        //콜라이더 사용 최소화
+        //콜라이더 상시 사용 최소화하여 거리계산
         if (dist < 2.0f)
         {
             //1초에 한번씩 hit
@@ -37,8 +37,8 @@ public class MonsterHitCtrl : MonoBehaviour
             {
                 //Debug.Log(timer + "Hit!");
                 timer = 0f;
-
-                playerCtrl.hp -= 10;
+                //subtract player hp
+                playerCtrl.hp -= Random.Range(5, 10);
 
                 //Debug.Log("HP = " + playerCtrl.hp);
 

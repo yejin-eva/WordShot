@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MonsterCtrl : MonoBehaviour
 {
@@ -18,8 +19,13 @@ public class MonsterCtrl : MonoBehaviour
     
     private bool isDie = false;
     public int hp = 100;
+    private int initHp;
 
     public GameObject item;
+    
+    //public GameObject monsterHpShow;
+    //public Image hpImage;
+    
 
     private void Awake()
     {
@@ -27,6 +33,11 @@ public class MonsterCtrl : MonoBehaviour
         playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
         nvAgent = this.gameObject.GetComponent<NavMeshAgent>();
         animator = this.gameObject.GetComponent<Animator>();
+
+        //!구현중: hp
+        //give monster the hp bar
+        //monsterHpShow = GameObject.Find("MonsterHpBar");
+        //hpImage = GameObject.Find("MonsterHpBarFill").GetComponentInChildren<Image>();
 
     }
 
@@ -61,6 +72,11 @@ public class MonsterCtrl : MonoBehaviour
             {
                 monsterState = MonsterState.idle;
             }
+
+            //!구현중: hp
+            //hpImage.transform.position = Camera.main.WorldToScreenPoint(monsterTr.position + new Vector3(0, 1, 0));
+            //hpImage.fillAmount = (float)hp / (float)initHp; //show hp
+
         }
     }
     IEnumerator MonsterAction()
@@ -97,7 +113,12 @@ public class MonsterCtrl : MonoBehaviour
         //Debug.Log(string.Format("Hit ray {0} : {1}", _params[0], _params[1]));
 
         hp -= (int)_params[1];
-        if(hp <= 0)
+
+        //*구현중!! show hp
+        //monsterHpShow.SetActive(true);
+
+
+        if (hp <= 0)
         {
             MonsterDie();
         }
@@ -137,6 +158,7 @@ public class MonsterCtrl : MonoBehaviour
 
         isDie = false;
         hp = Random.Range(50, 100);
+        initHp = hp;
         gameObject.tag = "MONSTER";
         monsterState = MonsterState.idle;
         gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
