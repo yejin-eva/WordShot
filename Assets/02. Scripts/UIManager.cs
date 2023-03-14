@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
 
     private string answer;
     private string chosenAnswer;
+
+    public GameObject miniMapObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,5 +84,14 @@ public class UIManager : MonoBehaviour
         //subtract used item
         itemAmount -= 1;
 
+    }
+
+    public void OnMinimapBtnClicked()
+    {
+        miniMapObj.SetActive(true);
+    }
+    public void OnMinimapBtnCloseClicked()
+    {
+        miniMapObj.SetActive(false);
     }
 }
