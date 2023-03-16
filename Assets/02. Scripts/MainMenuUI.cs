@@ -7,9 +7,14 @@ public class MainMenuUI : MonoBehaviour
 {
     public GameObject tutorialView;
     public GameObject conversationView;
+
+    //show coin amount
+    public Text coinAmountShow;
     private void Start()
     {
         tutorialView.SetActive(false);
+        //load coin amount
+        coinAmountShow.text = Database.Instance.coinScore.ToString();
     }
     public void OnTutorialBtnPressed()
     {

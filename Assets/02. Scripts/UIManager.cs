@@ -29,7 +29,8 @@ public class UIManager : MonoBehaviour
     {
         itemAmount = 0;
         answer = "One";
-        
+        coinAmount = Database.Instance.coinScore; //get initial score
+
     }
 
     
@@ -70,6 +71,7 @@ public class UIManager : MonoBehaviour
             if (chosenAnswer == answer)
             {
                 coinAmount += Random.Range(5, 11);
+                Database.Instance.coinScore = coinAmount; //update score to database !±¸ÇöÁß
             }
 
             
