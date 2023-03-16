@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //spawning monster related
     public Transform[] points;
     public GameObject spawnPoints;
     public GameObject monsterPrefab;
     public List<GameObject> monsterPool = new List<GameObject>();
 
-
     public float createTime = 3.0f;
     public int maxMonster = 5;
     public bool isGameOver = false;
 
+    //music related
     public float sfxVolumn = 1.0f;
     public bool isSfxMute = false;
 
-
+    //spawning potion related
     public Transform[] potionPoints;
     public GameObject potionSpawnPoints;
     public GameObject potionPrefab;
@@ -25,7 +26,12 @@ public class GameManager : MonoBehaviour
 
     public float potionCreateTime = 5.0f;
     public int maxPotion = 5;
-    
+
+    //spawning boss mob related
+    public string bossMonsterName;
+    public float bossTime = 3f;
+    private float passedTime;
+    bool isBoss = false;
 
     //싱글톤으로 제작
     public static GameManager instance = null;
@@ -37,6 +43,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        passedTime = 0f;
         //스폰포인트 찾기
         points = spawnPoints.GetComponentsInChildren<Transform>();
 
@@ -113,6 +120,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        //if time to call boss, call boss monster
+        passedTime += Time.deltaTime;
+        if (passedTime >= bossTime && isBoss == false)
+        {
+            Debug.Log("Spawn Monster");
+            SpawnBossMonster();
+            isBoss = true;
+        }
+
+    }
+    void SpawnBossMonster()
+    {
+        GameObject bossMonster = Instantiate(Resources.Load<GameObject>(bossMonsterName));
+
+    }
+
     public void PlaySfx(Vector3 pos, AudioClip sfx)
     {
         if (isSfxMute) return;
@@ -129,4 +154,6 @@ public class GameManager : MonoBehaviour
 
         Destroy(soundObj, sfx.length);
     }
+
+
 }
