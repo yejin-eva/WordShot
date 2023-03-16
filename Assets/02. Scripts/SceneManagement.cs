@@ -12,5 +12,11 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene("Practice_01");
     }
 
+    public void OnReturnBtnPressed()
+    {
+        Debug.Log("Return Button Pressed");
+        SceneManager.LoadScene("MainMenu");
+    }
+
    
 }

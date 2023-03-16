@@ -11,9 +11,11 @@ public class UIManager : MonoBehaviour
     
     public PlayerCtrl playerCtrl;
     
+    //for question
     public int itemAmount;
     public TMP_Text itemAmountShow;
 
+    //for coin
     public GameObject questionBoard;
     public int coinAmount;
     public Text coinAmountShow;
@@ -22,15 +24,15 @@ public class UIManager : MonoBehaviour
     private string chosenAnswer;
 
     public GameObject miniMapObj;
-    // Start is called before the first frame update
+    
     void Start()
     {
         itemAmount = 0;
         answer = "One";
-
+        
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         imgHpbar.fillAmount = (float)playerCtrl.hp / (float)playerCtrl.initHp; //show hp
@@ -60,7 +62,7 @@ public class UIManager : MonoBehaviour
         //if there is item available for solving
         if (itemAmount > 0)
         {
-            Debug.Log("Hello there");
+            //Debug.Log("Hello there");
             chosenAnswer = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text.ToString();
             Debug.Log("chosen is " + chosenAnswer);
 
