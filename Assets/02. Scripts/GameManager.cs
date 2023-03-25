@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
     void SpawnBossMonster()
     {
         GameObject bossMonster = Instantiate(Resources.Load<GameObject>(bossMonsterName));
-
+        bossMonster.SetActive(true); //activate monster
     }
 
     public void PlaySfx(Vector3 pos, AudioClip sfx)

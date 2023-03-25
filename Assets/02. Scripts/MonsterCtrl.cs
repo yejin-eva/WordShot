@@ -135,7 +135,7 @@ public class MonsterCtrl : MonoBehaviour
         animator.SetTrigger("IsDie");
 
         //추가된 콜라이더 비활성화
-        //사망 이후 혈흔 & 플레이어 공격 방지 
+        //사망 이후 플레이어 공격 방지 
         gameObject.GetComponentInChildren<CapsuleCollider>().enabled =false;
         foreach (Collider coll in gameObject.GetComponentsInChildren<SphereCollider>())
         {
