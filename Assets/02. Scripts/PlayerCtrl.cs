@@ -23,6 +23,8 @@ public class PlayerCtrl : MonoBehaviour
     Vector3 mPosDelta = Vector3.zero;
 
     Animator animator;
+
+    
     
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,8 @@ public class PlayerCtrl : MonoBehaviour
         runSpeed = 5f;
         animator = player.GetComponent<Animator>();
         cameraCtrl = Camera.main.GetComponent<CameraCtrl>();
+
+
     }
 
    

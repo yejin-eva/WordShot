@@ -1624,7 +1624,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.56037736, g: 0.7801887, b: 1, a: 1}
+  m_Color: {r: 0.7962264, g: 0.8981132, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -7754,7 +7754,8 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 769b21adb26f55045b9d66ae5e29a6dc, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2855040309514066124, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
 --- !u!4 &2087434599 stripped
 Transform:

@@ -294,6 +294,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819858253}
     m_Modifications:
+    - target: {fileID: 2855040309514066124, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 819858252}
     - target: {fileID: 7396714189671523935, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -455,7 +459,7 @@ MonoBehaviour:
   potionCreateTime: 5
   maxPotion: 5
   bossMonsterName: SoulEaterMonster
-  bossTime: 3
+  bossTime: 100
 --- !u!4 &45553335
 Transform:
   m_ObjectHideFlags: 0
@@ -12934,7 +12938,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876, type: 3}
     m_FontSize: 70
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 80

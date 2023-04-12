@@ -34,12 +34,8 @@ public class MonsterCtrl : MonoBehaviour
         nvAgent = this.gameObject.GetComponent<NavMeshAgent>();
         animator = this.gameObject.GetComponent<Animator>();
 
-        //!±¸ÇöÁß: hp
-        //give monster the hp bar
-        //monsterHpShow = GameObject.Find("MonsterHpBar");
-        //hpImage = GameObject.Find("MonsterHpBarFill").GetComponentInChildren<Image>();
-
     }
+   
 
     private void OnEnable() 
     {

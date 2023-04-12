@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6579082378009112518}
   - component: {fileID: 6139188965948205690}
+  - component: {fileID: 2387492232663716562}
   m_Layer: 0
   m_Name: Bottle_Health
   m_TagString: POTION
@@ -47,6 +48,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2387492232663716562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6575291653960627214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ba571bc94875448960ae4f83a2c7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  effectPrefab: {fileID: 1590415177872986601, guid: acdb90624a404aa438447006f1026065, type: 3}
+  effectSpawnPoint: {fileID: 0}
 --- !u!1 &6575291654600157684
 GameObject:
   m_ObjectHideFlags: 0
