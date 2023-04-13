@@ -4,51 +4,51 @@ using UnityEngine;
 
 public class FadeInCtrl : MonoBehaviour
 {
-    public float duration = 1f; //µîÀåÇÏ´Â µ¥ °É¸®´Â ½Ã°£
-    public GameObject effectPrefab; //°°ÀÌ Àç»ıµÉ ÀÌÆåÆ® ÇÁ¸®ÆÕ
-    public Transform effectSpawnPoint; //ÀÌÆåÆ® »ı¼º À§Ä¡
-    private Vector3 originalScale;
+    public float duration = 1f;
+    public GameObject effectPrefab;
+    public Transform effectSpawnPoint;
 
-    public bool isPlayer = false;
+    public bool isFadeIn = true;
+    public bool isEffect = true;
+    
 
-    private void Start()
+    private void OnEnable()
     {
-        if (isPlayer) //ÇÃ·¹ÀÌ¾îÀÏ ¶§ ÀÌÆåÆ®¸¸ Àç»ı
-        {
-            effectSpawnPoint = transform; //ÀÌÆåÆ® »ı¼º À§Ä¡ ¿ÀºêÁ§Æ® À§Ä¡·Î ¼³Á¤
-            if (effectPrefab != null && effectSpawnPoint != null)
-            {
-                GameObject effectInstance = Instantiate(effectPrefab, effectSpawnPoint.position, Quaternion.identity);
-                Destroy(effectInstance, 3f); //ÀÌÆåÆ® 1ÃÊ Àç»ı ÈÄ ÆÄ±«
-            }
-        }
-        else //ÇÃ·¹ÀÌ¾î°¡ ¾Æ´Ò ¶§
-        {
-            originalScale = transform.localScale; //Ã³À½ ½ºÄÉÀÏ ÀúÀå
-            transform.localScale = Vector3.zero; //½ºÄÉÀÏ 0À¸·Î ¼³Á¤ÇØ º¸ÀÌÁö ¾Êµµ·Ï
-            effectSpawnPoint = transform; //ÀÌÆåÆ® »ı¼º À§Ä¡ ¿ÀºêÁ§Æ® À§Ä¡·Î ¼³Á¤
-            StartCoroutine(FadeIn());
-        }
-        
+        effectSpawnPoint = transform; //ìì‹ ì˜ ìœ„ì¹˜ì—ì„œ ì´í™íŠ¸ ì‹¤í–‰
+        if (isFadeIn) StartCoroutine(FadeIn());
+        if (isEffect) StartCoroutine(PlayEffect());
     }
+
     IEnumerator FadeIn()
     {
+        Renderer renderer = GetComponent<Renderer>();
+        if(renderer == null)
+        {
+            Debug.LogWarning("Rendererì»´í¬ë„ŒíŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+            yield break;
+        }
+        Color originalColor = renderer.material.color;
         float elapsedTime = 0f;
-        while (elapsedTime < duration)
+        while (elapsedTime < duration) 
         {
             elapsedTime += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsedTime / duration); //°æ°ú ½Ã°£ ´ëºñ ÁøÇà·ü (0-1) °è»ê
-            transform.localScale = originalScale * t;
-
-            //µîÀå µµÁß ÀÌÆåÆ® »ı¼º
-            if (effectPrefab != null && effectSpawnPoint != null && t > 0.5f)
-            {
-                GameObject effectInstance = Instantiate(effectPrefab, effectSpawnPoint.position, Quaternion.identity);
-                Destroy(effectInstance, 1f); //ÀÌÆåÆ® »ı¼º, 1ÃÊ µÚ ÆÄ±«
-            }
-
-            yield return null; //ÇÑ ÇÁ·¹ÀÓ ´ë±â
+            float t = Mathf.Clamp01(elapsedTime / duration);
+            Color color = originalColor;
+            color.a = t;
+            renderer.material.color = color;
+            yield return null;
         }
-        transform.localScale = originalScale; //½ºÄÉÀÏ ÃÖÁ¾°ªÀ¸·Î ¼³Á¤
+        Color finalColor = originalColor;
+        finalColor.a = 1f;
+        renderer.material.color = finalColor;
+    }
+    IEnumerator PlayEffect()
+    {
+        if (effectPrefab != null && effectSpawnPoint != null)
+        {
+            yield return new WaitForSeconds(duration * 0.5f); //ì ˆë°˜ ì‹œê°„ í›„ì— ì´í™íŠ¸ ì¬ìƒ
+            GameObject effectInstance = Instantiate(effectPrefab, effectSpawnPoint.position, Quaternion.identity);
+            Destroy(effectInstance, 3f); //ì´í™íŠ¸ 3ì´ˆ ì¬ìƒ í›„ íŒŒê´´
+        }
     }
 }

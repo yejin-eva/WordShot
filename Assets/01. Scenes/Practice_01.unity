@@ -3404,7 +3404,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e1120a0bf5844a54b81cc15cfe59a298, type: 3}
@@ -4869,6 +4869,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152013106}
   m_CullTransparentMesh: 1
+--- !u!1001 &1169119653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1975194375736644, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_Name
+      value: Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975194375736644, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
 --- !u!1001 &1176499167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10123,7 +10184,7 @@ MonoBehaviour:
   potionCreateTime: 5
   maxPotion: 5
   bossMonsterName: SoulEaterMonster
-  bossTime: 100
+  bossTime: 1000
 --- !u!4 &2093238280
 Transform:
   m_ObjectHideFlags: 0
@@ -10216,10 +10277,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1985752845}
     m_Modifications:
+    - target: {fileID: 2855040309514066118, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 2855040309514066124, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1985752844}
+    - target: {fileID: 2855040309514066127, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
+      propertyPath: isEffectOnly
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396714189671523935, guid: 0a900bb397943344eaaaab73aa7a34c7, type: 3}
       propertyPath: m_RootOrder
       value: 0
