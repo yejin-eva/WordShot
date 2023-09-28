@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FireCtrl : MonoBehaviour
 {
-    public Transform firePos;
-    public AudioClip fireSfx; //총알 발사 사운드
+    [SerializeField] private Transform firePos;
+    [SerializeField] private AudioClip fireSfx; //총알 발사 사운드
     private AudioSource source = null; //오디오소스 컴포넌트 저장 변수
-    public MeshRenderer muzzleFlash;
+    [SerializeField] private MeshRenderer muzzleFlash;
     
     void Start()
     {

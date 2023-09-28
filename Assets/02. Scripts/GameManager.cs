@@ -155,5 +155,13 @@ public class GameManager : MonoBehaviour
         Destroy(soundObj, sfx.length);
     }
 
+    public void GameOver()
+    {
+        isGameOver = true;
+        //switch to main
+        //deduct coins
+
+    }
+
 
 }

@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class TentCtrl : MonoBehaviour
 {
-    public string sceneName;
-    public GameObject player;
+    [SerializeField] private enum SceneNames
+    {
+        Practice_01,
+        Practice_02,
+        Practice_Multiplayer,
+    };
+    [SerializeField] private SceneNames sceneName = SceneNames.Practice_01;
+    [SerializeField] private GameObject player;
     float dist;
     
     // Start is called before the first frame update
@@ -21,8 +27,9 @@ public class TentCtrl : MonoBehaviour
         dist = Vector3.Distance(this.transform.position, player.transform.position);
         if (dist < 1.0f)
         {
-            Debug.Log("Entering " + sceneName);
-            SceneManager.LoadScene(sceneName);
+            Debug.Log("Entering " + sceneName.ToString());
+            SceneManager.LoadScene(sceneName.ToString());
+            
         }
     }
 }

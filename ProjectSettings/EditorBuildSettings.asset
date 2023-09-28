@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/01. Scenes/Practice_01.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/01. Scenes/Practice_02_old.unity
-    guid: 79c9015bfdc282a44899bf4edfb9cb55
+    path: Assets/01. Scenes/Practice_02.unity
+    guid: c5f885a5c4a52e440a23e8a752616fc6
   - enabled: 1
     path: Assets/01. Scenes/Practice_Arena.unity
     guid: e853ed2d0ee93c647b77e8d57a769ec6
+  - enabled: 1
+    path: Assets/01. Scenes/Practice_Multiplayer.unity
+    guid: e37393ebf132479449e39d848d92ae06
   m_configObjects: {}

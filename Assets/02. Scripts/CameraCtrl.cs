@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CameraCtrl : MonoBehaviour
 {
-    public Transform targetTr;
-    public float dist = 10.0f;
-    public float height = 5.0f;
+    [SerializeField] private Transform targetTr;
+    [SerializeField] private float dist = 10.0f;
+    [SerializeField] private float height = 5.0f;
 
-    public Transform scopeTr;
+    [SerializeField] private Transform scopeTr;
     public int isScope = -1;
-    
-    public float dampTrace = 20.0f;
+
+    [SerializeField] private float dampTrace = 20.0f;
 
     //카메라의 Transform
     private Transform tr;
@@ -43,27 +43,8 @@ public class CameraCtrl : MonoBehaviour
             
         }
         
-        
-        
-
-
 
     }
-    //!구현중: 물체 투명화
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "BACKGROUND")
-        {
-            other.gameObject.SetActive(false);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        other.gameObject.SetActive(true);
-    }
-    */
-
 
 
     public void OnScopePressed()

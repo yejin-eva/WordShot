@@ -5,11 +5,13 @@ using UnityEngine;
 public class CollectCtrl : MonoBehaviour
 {
     UIManager uiManager;
-    public AudioClip itemCollectSfx; //æ∆¿Ã≈€ »πµÊ ªÁøÓµÂ
+    [SerializeField] private AudioClip itemCollectSfx; //æ∆¿Ã≈€ »πµÊ ªÁøÓµÂ
 
-    PlayerCtrl playerCtrl;
-    public GameObject player;
-    public AudioClip potionCollectSfx;
+    
+    [SerializeField] private GameObject player;
+    private PlayerCtrl playerCtrl;
+
+    [SerializeField] private AudioClip potionCollectSfx;
     private void Start()
     {
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();

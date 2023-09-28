@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
             if (chosenAnswer == answer)
             {
                 coinAmount += Random.Range(5, 11);
-                Database.Instance.coinScore = coinAmount; //update score to database !±¸ÇöÁß
+                Database.Instance.coinScore = coinAmount; //update score to database
             }
 
             

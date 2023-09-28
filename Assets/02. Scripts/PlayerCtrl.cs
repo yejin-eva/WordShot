@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,27 +6,42 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField] private GameObject player;
 
     public int hp = 300;
     public int initHp; //initial hp
 
-    CameraCtrl cameraCtrl;
+    private CameraCtrl cameraCtrl;
 
     private float h = 0.0f;
     private float v = 0.0f;
 
-    public float moveSpeed;
-    public float rotateSpeed;
-    public float runSpeed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotateSpeed;
+    [SerializeField] private float runSpeed;
 
     Vector3 mPrevPos = Vector3.zero;
     Vector3 mPosDelta = Vector3.zero;
 
     Animator animator;
 
-    
-    
+    public event EventHandler OnPlayerHit;
+    private enum Movements
+    {
+        Horizontal,
+        Vertical,
+    };
+    private enum AnimMovement
+    {
+        Idle,
+        Forward,
+        Backward,
+        Left,
+        Right,
+        Run,
+        IsFire,
+    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,13 +56,10 @@ public class PlayerCtrl : MonoBehaviour
 
     }
 
-   
-
     private void movement()
     {
-        
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        h = Input.GetAxis(Movements.Horizontal.ToString());
+        v = Input.GetAxis(Movements.Vertical.ToString());
 
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         
@@ -83,47 +96,48 @@ public class PlayerCtrl : MonoBehaviour
         
     }
 
+    
     private void animMovement()
     {
         //forward
         if (Input.GetKeyDown(KeyCode.W))
-            animator.SetTrigger("Forward");
+            animator.SetTrigger(AnimMovement.Forward.ToString());
         else if (Input.GetKeyUp(KeyCode.W))
-            animator.SetTrigger("Idle");
+            animator.SetTrigger(AnimMovement.Idle.ToString());
         //backward
         if (Input.GetKeyDown(KeyCode.S))
-            animator.SetTrigger("Backward");
+            animator.SetTrigger(AnimMovement.Backward.ToString());
         else if (Input.GetKeyUp(KeyCode.S))
-            animator.SetTrigger("Idle");
+            animator.SetTrigger(AnimMovement.Idle.ToString());
         //left
         if (Input.GetKeyDown(KeyCode.A))
-            animator.SetTrigger("Left");
+            animator.SetTrigger(AnimMovement.Left.ToString());
         else if (Input.GetKeyUp(KeyCode.A))
-            animator.SetTrigger("Idle");
+            animator.SetTrigger(AnimMovement.Idle.ToString());
         //right
         if (Input.GetKeyDown(KeyCode.D))
-            animator.SetTrigger("Right");
+            animator.SetTrigger(AnimMovement.Right.ToString());
         else if (Input.GetKeyUp(KeyCode.D))
-            animator.SetTrigger("Idle");
+            animator.SetTrigger(AnimMovement.Idle.ToString());
 
 
         //run
         if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.W))
         {
-            animator.SetTrigger("Run");
+            animator.SetTrigger(AnimMovement.Run.ToString());
         }
         else if (Input.GetMouseButtonUp(1) && Input.GetKey(KeyCode.W))
         {
-            animator.SetTrigger("Forward");
+            animator.SetTrigger(AnimMovement.Forward.ToString());
         }
 
         else if (Input.GetKeyUp(KeyCode.W)) //from D
-            animator.SetTrigger("Idle");
+            animator.SetTrigger(AnimMovement.Idle.ToString());
 
         //fire
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetTrigger("IsFire");
+            animator.SetTrigger(AnimMovement.IsFire.ToString());
         }
 
     }
@@ -131,8 +145,8 @@ public class PlayerCtrl : MonoBehaviour
     //스코프 활성화 시 움직임 제한 
     void movementLimit()
     {
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        h = Input.GetAxis(Movements.Horizontal.ToString());
+        v = Input.GetAxis(Movements.Vertical.ToString());
 
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
 
@@ -157,7 +171,7 @@ public class PlayerCtrl : MonoBehaviour
         //fire animation
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetTrigger("IsFire");
+            animator.SetTrigger(AnimMovement.IsFire.ToString());
         }
     }
 
@@ -173,6 +187,10 @@ public class PlayerCtrl : MonoBehaviour
         else if (cameraCtrl.isScope == 1)
         {
             movementLimit();
+        }
+        if(hp <= 0)
+        {
+            GameManager.instance.GameOver();
         }
         
     }
