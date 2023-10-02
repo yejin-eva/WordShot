@@ -20,29 +20,17 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float runSpeed;
 
-    Vector3 mPrevPos = Vector3.zero;
-    Vector3 mPosDelta = Vector3.zero;
+    private Vector3 mPrevPos = Vector3.zero;
+    private Vector3 mPosDelta = Vector3.zero;
 
-    Animator animator;
 
-    public event EventHandler OnPlayerHit;
+    //public event EventHandler OnPlayerHit;
     private enum Movements
     {
         Horizontal,
         Vertical,
     };
-    private enum AnimMovement
-    {
-        Idle,
-        Forward,
-        Backward,
-        Left,
-        Right,
-        Run,
-        IsFire,
-    };
 
-    // Start is called before the first frame update
     void Start()
     {
         initHp = hp;
@@ -50,7 +38,7 @@ public class PlayerCtrl : MonoBehaviour
         moveSpeed = 2f;
         rotateSpeed = 0.5f;
         runSpeed = 5f;
-        animator = player.GetComponent<Animator>();
+        
         cameraCtrl = Camera.main.GetComponent<CameraCtrl>();
 
 
@@ -96,51 +84,6 @@ public class PlayerCtrl : MonoBehaviour
         
     }
 
-    
-    private void animMovement()
-    {
-        //forward
-        if (Input.GetKeyDown(KeyCode.W))
-            animator.SetTrigger(AnimMovement.Forward.ToString());
-        else if (Input.GetKeyUp(KeyCode.W))
-            animator.SetTrigger(AnimMovement.Idle.ToString());
-        //backward
-        if (Input.GetKeyDown(KeyCode.S))
-            animator.SetTrigger(AnimMovement.Backward.ToString());
-        else if (Input.GetKeyUp(KeyCode.S))
-            animator.SetTrigger(AnimMovement.Idle.ToString());
-        //left
-        if (Input.GetKeyDown(KeyCode.A))
-            animator.SetTrigger(AnimMovement.Left.ToString());
-        else if (Input.GetKeyUp(KeyCode.A))
-            animator.SetTrigger(AnimMovement.Idle.ToString());
-        //right
-        if (Input.GetKeyDown(KeyCode.D))
-            animator.SetTrigger(AnimMovement.Right.ToString());
-        else if (Input.GetKeyUp(KeyCode.D))
-            animator.SetTrigger(AnimMovement.Idle.ToString());
-
-
-        //run
-        if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.W))
-        {
-            animator.SetTrigger(AnimMovement.Run.ToString());
-        }
-        else if (Input.GetMouseButtonUp(1) && Input.GetKey(KeyCode.W))
-        {
-            animator.SetTrigger(AnimMovement.Forward.ToString());
-        }
-
-        else if (Input.GetKeyUp(KeyCode.W)) //from D
-            animator.SetTrigger(AnimMovement.Idle.ToString());
-
-        //fire
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetTrigger(AnimMovement.IsFire.ToString());
-        }
-
-    }
 
     //스코프 활성화 시 움직임 제한 
     void movementLimit()
@@ -168,11 +111,7 @@ public class PlayerCtrl : MonoBehaviour
         }
 
 
-        //fire animation
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetTrigger(AnimMovement.IsFire.ToString());
-        }
+        
     }
 
 
@@ -182,7 +121,7 @@ public class PlayerCtrl : MonoBehaviour
         if (cameraCtrl.isScope == -1)
         {
             movement();
-            animMovement();
+            //animMovement();
         }
         else if (cameraCtrl.isScope == 1)
         {

@@ -7,28 +7,34 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public Image imgHpbar;
-    
-    public PlayerCtrl playerCtrl;
+    [SerializeField] private Image imgHpbar;
+
+    [SerializeField] private PlayerCtrl playerCtrl;
     
     //for question
     public int itemAmount;
     public TMP_Text itemAmountShow;
 
     //for coin
-    public GameObject questionBoard;
+    public GameObject questionBoard; //
     public int coinAmount;
     public Text coinAmountShow;
 
-    private string answer;
-    private string chosenAnswer;
+    private string answer; //
+    private string chosenAnswer; //
 
-    public GameObject miniMapObj;
-    
+    public GameObject miniMapObject;
+
+    //create singleton
+    public static UIManager instance = null;
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         itemAmount = 0;
-        answer = "One";
+        //answer = "One";
         coinAmount = Database.Instance.coinScore; //get initial score
 
     }
@@ -41,6 +47,8 @@ public class UIManager : MonoBehaviour
         coinAmountShow.text = coinAmount.ToString(); //show coin
     }
 
+    /*
+
     public void OnItemBtnClicked()
     {
         Debug.Log("Pressed");
@@ -49,6 +57,7 @@ public class UIManager : MonoBehaviour
         if (itemAmount > 0)
         {
             questionBoard.SetActive(true);
+            ResetQuestions();
         }
     }
     public void OnExitBtnClicked()
@@ -89,13 +98,14 @@ public class UIManager : MonoBehaviour
         itemAmount -= 1;
 
     }
+    */
 
     public void OnMinimapBtnClicked()
     {
-        miniMapObj.SetActive(true);
+        miniMapObject.SetActive(true);
     }
     public void OnMinimapBtnCloseClicked()
     {
-        miniMapObj.SetActive(false);
+        miniMapObject.SetActive(false);
     }
 }

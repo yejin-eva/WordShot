@@ -835,6 +835,57 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
+--- !u!1 &221413736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 221413737}
+  - component: {fileID: 221413738}
+  m_Layer: 5
+  m_Name: QuestionBoardUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &221413737
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221413736}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1858149151}
+  m_Father: {fileID: 1254283204}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &221413738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221413736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2cc0d0089c57f4a92d61a0ab57a9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionBoard: {fileID: 1858149150}
 --- !u!43 &227955762
 Mesh:
   m_ObjectHideFlags: 0
@@ -5429,7 +5480,7 @@ RectTransform:
   - {fileID: 2009237843}
   - {fileID: 421589795}
   - {fileID: 2010124047}
-  - {fileID: 1858149151}
+  - {fileID: 221413737}
   - {fileID: 1478310059}
   - {fileID: 1773999653}
   - {fileID: 472257336}
@@ -7294,8 +7345,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2002992251}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 221413738}
+        m_TargetAssemblyTypeName: QuestionBoardUI, Assembly-CSharp
         m_MethodName: OnExitBtnClicked
         m_Mode: 1
         m_Arguments:
@@ -8510,8 +8561,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2002992251}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 221413738}
+        m_TargetAssemblyTypeName: QuestionBoardUI, Assembly-CSharp
         m_MethodName: OnAnswerChoiceBtnClicked
         m_Mode: 1
         m_Arguments:
@@ -8766,8 +8817,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2002992251}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 221413738}
+        m_TargetAssemblyTypeName: QuestionBoardUI, Assembly-CSharp
         m_MethodName: OnAnswerChoiceBtnClicked
         m_Mode: 1
         m_Arguments:
@@ -8911,14 +8962,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858149150}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 466626489}
-  m_Father: {fileID: 1254283204}
-  m_RootOrder: 5
+  m_Father: {fileID: 221413737}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9009,8 +9060,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2002992251}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 221413738}
+        m_TargetAssemblyTypeName: QuestionBoardUI, Assembly-CSharp
         m_MethodName: OnAnswerChoiceBtnClicked
         m_Mode: 1
         m_Arguments:
@@ -9345,6 +9396,7 @@ GameObject:
   - component: {fileID: 1985752845}
   - component: {fileID: 1985752846}
   - component: {fileID: 1985752847}
+  - component: {fileID: 1985752848}
   m_Layer: 0
   m_Name: Player
   m_TagString: PlayerObject
@@ -9401,6 +9453,19 @@ MonoBehaviour:
   firePos: {fileID: 1585900414}
   fireSfx: {fileID: 8300000, guid: 2082b20a5ee5ac8459af830a344e89c3, type: 3}
   muzzleFlash: {fileID: 1037531988}
+--- !u!114 &1985752848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985752844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f492213f23abc154080e57a824a25235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2066214981}
 --- !u!1001 &1988727585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9674,7 +9739,7 @@ MonoBehaviour:
   questionBoard: {fileID: 1858149150}
   coinAmount: 0
   coinAmountShow: {fileID: 1738047678}
-  miniMapObj: {fileID: 472257335}
+  miniMapObject: {fileID: 0}
 --- !u!4 &2002992252
 Transform:
   m_ObjectHideFlags: 0
@@ -9851,8 +9916,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2002992251}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 221413738}
+        m_TargetAssemblyTypeName: QuestionBoardUI, Assembly-CSharp
         m_MethodName: OnItemBtnClicked
         m_Mode: 1
         m_Arguments:
@@ -10075,8 +10140,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2002992251}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 221413738}
+        m_TargetAssemblyTypeName: QuestionBoardUI, Assembly-CSharp
         m_MethodName: OnAnswerChoiceBtnClicked
         m_Mode: 1
         m_Arguments:
@@ -10247,7 +10312,7 @@ MonoBehaviour:
   potionCreateTime: 5
   maxPotion: 5
   bossMonsterName: SoulEaterMonster
-  bossTime: 5
+  bossTime: 100
 --- !u!4 &2093238280
 Transform:
   m_ObjectHideFlags: 0
