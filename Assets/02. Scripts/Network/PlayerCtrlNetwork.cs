@@ -8,6 +8,7 @@ using Unity.Netcode;
 public class PlayerCtrlNetwork : NetworkBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform scopeTransform;
 
     //public int hp = 300;
     //public int initHp; //initial hp
@@ -48,6 +49,7 @@ public class PlayerCtrlNetwork : NetworkBehaviour
         //set target transform when initialized
         //cameraCtrl = Camera.main.GetComponent<CameraCtrl>();
         CameraCtrl.instance.targetTr = player.gameObject.transform;
+        CameraCtrl.instance.scopeTr = scopeTransform;
         UIManager.instance.playerCtrl = this.gameObject.GetComponent<PlayerCtrl>();
 
 

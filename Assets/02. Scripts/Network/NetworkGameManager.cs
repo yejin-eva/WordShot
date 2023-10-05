@@ -120,11 +120,21 @@ public class NetworkGameManager : NetworkBehaviour
                     int idx = Random.Range(1, points.Length);
                     monster.transform.position = points[idx].position;
                     monster.SetActive(true);
+
+
+                    //
                     break;
                 }
             }
         }
     }
+
+
+    //[ClientRpc]
+    //private void SpawnMonsterClientRpc(GameObject monster)
+    //{
+
+    //}
 
     private void Update()
     {
@@ -143,6 +153,7 @@ public class NetworkGameManager : NetworkBehaviour
         }
 
     }
+    
     void SpawnBossMonster()
     {
         GameObject bossMonster = Instantiate(Resources.Load<GameObject>(bossMonsterName));

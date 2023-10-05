@@ -6,7 +6,7 @@ public class PlayerData : MonoBehaviour
 {
     public static PlayerData instance = null;
 
-
+    public string PlayerName = "Eva";
     private int hp = 300;
     private int initialHp = 300;
     

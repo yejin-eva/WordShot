@@ -26,9 +26,5 @@ public class ChattingBoxUI : MonoBehaviour
         ChatOn = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

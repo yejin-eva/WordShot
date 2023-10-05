@@ -16,6 +16,8 @@ public class MonsterHitCtrl : MonoBehaviour
 
     private int minimumDamage = 5;
     private int maximumDamage = 10;
+
+    
     // Start is called before the first frame update
     void Start()
     {

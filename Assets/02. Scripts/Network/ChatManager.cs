@@ -13,7 +13,7 @@ public class ChatManager : NetworkBehaviour
     [SerializeField] CanvasGroup chatContent;
     [SerializeField] InputField chatInput;
 
-    public string playerName = "Evaline";
+    public string playerName = PlayerData.instance.PlayerName;
 
     private void Awake()
     {
