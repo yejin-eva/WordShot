@@ -27,7 +27,7 @@ public class FireRayCtrl : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue);
 
         //슈팅 버튼 눌렀을 때 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             //라인렌더러의 첫 번째 점 위치 기존 광선과 겹치지 않도록 조금 높게 설정
             line.SetPosition(0, tr.InverseTransformPoint(ray.origin));

@@ -9,7 +9,7 @@ public class MonsterHitCtrl : MonoBehaviour
     private UIManager uiManager;
     
     
-    PlayerCtrl playerCtrl;
+    //PlayerCtrl playerCtrl;
 
     private float distance;
     private float timer;
@@ -19,12 +19,14 @@ public class MonsterHitCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerCtrl = GameObject.FindGameObjectWithTag("PlayerObject").GetComponent<PlayerCtrl>();
+        //playerCtrl = GameObject.FindGameObjectWithTag("PlayerObject").GetComponent<PlayerCtrl>();
         uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         distance = Vector3.Distance(this.transform.position, player.transform.position);
     }
-
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +43,7 @@ public class MonsterHitCtrl : MonoBehaviour
                 //Debug.Log(timer + "Hit!");
                 timer = 0f;
                 //subtract player hp
-                playerCtrl.hp -= Random.Range(minimumDamage, maximumDamage);
+                PlayerData.instance.SetHp(PlayerData.instance.PlayerHp - Random.Range(minimumDamage, maximumDamage));
 
                 //Debug.Log("HP = " + playerCtrl.hp);
 

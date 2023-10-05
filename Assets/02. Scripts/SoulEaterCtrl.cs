@@ -70,7 +70,7 @@ public class SoulEaterCtrl : MonoBehaviour
 
                     //deduct hp from player
                     Debug.Log("Attacked");
-                    playerCtrl.hp -= UnityEngine.Random.Range(10, 30);
+                    PlayerData.instance.SetHp(PlayerData.instance.PlayerHp - UnityEngine.Random.Range(10, 30));
                     timer = 0;
 
                 }

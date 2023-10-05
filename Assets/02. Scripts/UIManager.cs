@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Image imgHpbar;
 
-    [SerializeField] private PlayerCtrl playerCtrl;
+    public PlayerCtrl playerCtrl;
     
     //for question
     public int itemAmount;
@@ -20,8 +20,6 @@ public class UIManager : MonoBehaviour
     public int coinAmount;
     public Text coinAmountShow;
 
-    private string answer; //
-    private string chosenAnswer; //
 
     public GameObject miniMapObject;
 
@@ -42,63 +40,12 @@ public class UIManager : MonoBehaviour
     
     void Update()
     {
-        imgHpbar.fillAmount = (float)playerCtrl.hp / (float)playerCtrl.initHp; //show hp
+        imgHpbar.fillAmount = (float)PlayerData.instance.PlayerHp / (float)PlayerData.instance.PlayerInitialHp; //show hp
         itemAmountShow.text = itemAmount.ToString(); //show item
         coinAmountShow.text = coinAmount.ToString(); //show coin
     }
 
-    /*
-
-    public void OnItemBtnClicked()
-    {
-        Debug.Log("Pressed");
-        
-        //if problem can be solved
-        if (itemAmount > 0)
-        {
-            questionBoard.SetActive(true);
-            ResetQuestions();
-        }
-    }
-    public void OnExitBtnClicked()
-    {
-        Debug.Log("Exit clicked");
-        questionBoard.SetActive(false);
-    }
-
-    public void OnAnswerChoiceBtnClicked()
-    {
-        
-        //if there is item available for solving
-        if (itemAmount > 0)
-        {
-            //Debug.Log("Hello there");
-            chosenAnswer = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text.ToString();
-            Debug.Log("chosen is " + chosenAnswer);
-
-            //give 5-10coins randomly if correct
-            if (chosenAnswer == answer)
-            {
-                coinAmount += Random.Range(5, 11);
-                Database.Instance.coinScore = coinAmount; //update score to database
-            }
-
-            
-
-        }
-        //if used up all items & number of items is 0 or lower
-        else
-        {
-            Debug.Log("Cannot solve more");
-            questionBoard.SetActive(false);
-            itemAmount += 1;
-
-        }
-        //subtract used item
-        itemAmount -= 1;
-
-    }
-    */
+    
 
     public void OnMinimapBtnClicked()
     {

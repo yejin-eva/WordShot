@@ -41,7 +41,7 @@ public class MonsterCtrl : MonoBehaviour
     private void Awake()
     {
         monsterTr = this.gameObject.GetComponent<Transform>();
-        playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        //playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
         nvAgent = this.gameObject.GetComponent<NavMeshAgent>();
         animator = this.gameObject.GetComponent<Animator>();
 
@@ -50,6 +50,8 @@ public class MonsterCtrl : MonoBehaviour
 
     private void OnEnable() 
     {
+        //Enable시에 플레이어 찾기 
+        playerTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
         //랜덤한 hp로 난이도 조정
         hp = UnityEngine.Random.Range(minimumHp, maximumHp);
         initialHp = hp;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraCtrl : MonoBehaviour
 {
-    [SerializeField] private Transform targetTr;
+    public Transform targetTr;
     [SerializeField] private float dist = 10.0f;
     [SerializeField] private float height = 5.0f;
 
@@ -15,11 +15,18 @@ public class CameraCtrl : MonoBehaviour
 
     //카메라의 Transform
     private Transform tr;
-    
+
+    public static CameraCtrl instance = null;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         tr = GetComponent<Transform>();
-        
+        //targetTr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
     }
 
     //플레이어 이동 후 카메라 추적

@@ -39,7 +39,7 @@ public class FireCtrl : MonoBehaviour
         Debug.DrawRay(firePos.position, firePos.forward * 10.0f, Color.red);
         
         //스페이스바 누르면 ray 발사
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             Fire(); //총소리 + 총 불빛 보여주기
             RaycastHit hit;

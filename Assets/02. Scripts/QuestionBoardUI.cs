@@ -172,9 +172,10 @@ public class QuestionBoardUI : MonoBehaviour
         //if there is item available for solving
         if (UIManager.instance.itemAmount > 0)
         {
+            UIManager.instance.itemAmount -= 1;
 
             chosenAnswer = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text.ToString();
-            Debug.Log("chosen is " + chosenAnswer);
+            //Debug.Log("chosen is " + chosenAnswer);
             
             //give 5-10coins randomly if correct
             if (chosenAnswer == answer)
@@ -185,6 +186,12 @@ public class QuestionBoardUI : MonoBehaviour
 
             StartCoroutine(ResetQuestions());
 
+
+            if(UIManager.instance.itemAmount <= 0)
+            {
+                questionBoard.SetActive(false);
+            }
+
         }
         //if used up all items & number of items is 0 or lower
         else
@@ -192,11 +199,11 @@ public class QuestionBoardUI : MonoBehaviour
             Debug.Log("Cannot solve more");
             questionBoard.SetActive(false);
             //StartCoroutine(ResetQuestions());
-            UIManager.instance.itemAmount += 1;
+            //UIManager.instance.itemAmount += 1;
 
         }
         //subtract used item
-        UIManager.instance.itemAmount -= 1;
+        //UIManager.instance.itemAmount -= 1;
 
     }
 }

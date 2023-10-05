@@ -8,8 +8,8 @@ public class PlayerCtrl : MonoBehaviour
 {
     [SerializeField] private GameObject player;
 
-    public int hp = 300;
-    public int initHp; //initial hp
+    //public int hp = 300;
+    //public int initHp; //initial hp
 
     private CameraCtrl cameraCtrl;
 
@@ -33,7 +33,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Start()
     {
-        initHp = hp;
+        //initHp = PlayerData.instance.PlayerHp;
 
         moveSpeed = 2f;
         rotateSpeed = 0.5f;
@@ -127,7 +127,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             movementLimit();
         }
-        if(hp <= 0)
+        if(PlayerData.instance.PlayerHp <= 0)
         {
             GameManager.instance.GameOver();
         }

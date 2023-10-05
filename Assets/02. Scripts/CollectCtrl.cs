@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectCtrl : MonoBehaviour
 {
-    UIManager uiManager;
+    //UIManager uiManager;
     [SerializeField] private AudioClip itemCollectSfx; //æ∆¿Ã≈€ »πµÊ ªÁøÓµÂ
 
     
@@ -14,7 +14,7 @@ public class CollectCtrl : MonoBehaviour
     [SerializeField] private AudioClip potionCollectSfx;
     private void Start()
     {
-        uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        //uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         playerCtrl = player.GetComponent<PlayerCtrl>();
         
     }
@@ -24,7 +24,7 @@ public class CollectCtrl : MonoBehaviour
         if (other.tag == "ITEM")
         {
             Debug.Log("Item found");
-            uiManager.itemAmount += 1;
+            UIManager.instance.itemAmount += 1;
             Destroy(other.gameObject);
             
             //play collect sound
@@ -34,7 +34,11 @@ public class CollectCtrl : MonoBehaviour
         if (other.tag == "POTION")
         {
             Debug.Log("Potion found");
-            playerCtrl.hp += 10;
+            if(PlayerData.instance.PlayerHp < 300)
+            {
+                PlayerData.instance.SetHp(PlayerData.instance.PlayerHp + 10);
+            }
+            
             other.gameObject.SetActive(false); //hide potion once collected
             GameManager.instance.PlaySfx(transform.position, potionCollectSfx);
         }

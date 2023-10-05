@@ -43,7 +43,7 @@ public class PlayerAnimation : MonoBehaviour
     private void movementLimit()
     {
         //fire animation
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             animator.SetTrigger(AnimMovement.IsFire.ToString());
         }
@@ -87,7 +87,7 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetTrigger(AnimMovement.Idle.ToString());
 
         //fire
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             animator.SetTrigger(AnimMovement.IsFire.ToString());
         }

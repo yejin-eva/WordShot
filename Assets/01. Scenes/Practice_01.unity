@@ -776,65 +776,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3448647613925869208, guid: a2bd798ea40c7e341aa61ad124d95342, type: 3}
   m_PrefabInstance: {fileID: 203642683}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &221386880
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1975194375736644, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_Name
-      value: Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744222756475520, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: e6ed8adcd9724724d8267c0e465fea29, type: 3}
 --- !u!1 &221413736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5439,12 +5380,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -9406,6 +9347,7 @@ GameObject:
   - component: {fileID: 1985752846}
   - component: {fileID: 1985752847}
   - component: {fileID: 1985752848}
+  - component: {fileID: 1985752849}
   m_Layer: 0
   m_Name: Player
   m_TagString: PlayerObject
@@ -9442,8 +9384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2066214981}
-  hp: 300
-  initHp: 0
   moveSpeed: 0
   rotateSpeed: 0
   runSpeed: 0
@@ -9475,6 +9415,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2066214981}
+--- !u!114 &1985752849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985752844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770e28b9bf62e9943bc5eaf598bb489c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1987584044
 GameObject:
   m_ObjectHideFlags: 0
@@ -9518,7 +9470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1988727585
 PrefabInstance:
@@ -9793,7 +9745,7 @@ MonoBehaviour:
   questionBoard: {fileID: 1858149150}
   coinAmount: 0
   coinAmountShow: {fileID: 1738047678}
-  miniMapObject: {fileID: 0}
+  miniMapObject: {fileID: 472257335}
 --- !u!4 &2002992252
 Transform:
   m_ObjectHideFlags: 0
