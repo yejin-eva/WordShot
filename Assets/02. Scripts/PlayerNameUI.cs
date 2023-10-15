@@ -13,10 +13,8 @@ public class PlayerNameUI : MonoBehaviour
     }
     private void Start()
     {
-
         inputField.text = "Evaline";
         inputField.onValueChanged.AddListener(OnInputValueChanged);
-
     }
 
     private void OnInputValueChanged(string newValue)

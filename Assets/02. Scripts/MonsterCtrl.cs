@@ -64,7 +64,6 @@ public class MonsterCtrl : MonoBehaviour
     }
     IEnumerator CheckMonsterState()
     {
-        
         while (!isDie)
         {
             yield return new WaitForSeconds(0.2f);

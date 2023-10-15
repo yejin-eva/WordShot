@@ -9337,7 +9337,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e1120a0bf5844a54b81cc15cfe59a298, type: 3}
@@ -22438,6 +22438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770e28b9bf62e9943bc5eaf598bb489c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: Eva
 --- !u!1 &2002992250
 GameObject:
   m_ObjectHideFlags: 0

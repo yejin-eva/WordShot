@@ -11,7 +11,7 @@ public class QuestionBoardUI : MonoBehaviour
     private string answer;
     private string chosenAnswer;
     [SerializeField] private int startIndex = 1;
-    [SerializeField] private int endIndex = 44;
+    [SerializeField] private int endIndex = 585;
 
     [SerializeField] private int minimumCoin = 5;
     [SerializeField] private int maximumCoin = 10;
@@ -77,7 +77,6 @@ public class QuestionBoardUI : MonoBehaviour
                     
                 }
             });
-
             //Debug.Log(PhpConnection.instance.GenerateQuestion(randomIds[i]));
             
         }
